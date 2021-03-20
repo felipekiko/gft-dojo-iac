@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head>
+    <title>Dojo IaC Simple Example</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.1.0/themes/reset-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.1.0/themes/algolia-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/hover.css@2.3.2/css/hover.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/auto-refresh/bootstrap-table-auto-refresh.min.js"></script>
+</head>
+
+<body>
+    <input type='text' value='' id='input' />
+    <input type='button' value='SAVE' id='save' />
+    <span style='color:green' id='result'></span>
+    <table
+        id="table"
+        data-toggle="table"
+        data-url="https://dojo-api.kiko.sh/"
+        data-show-refresh="true">
+        <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="name">NAME</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+
+<script type="text/javascript">
+    $('#save').click(function(){
+        $.ajax({
+            url: 'https://dojo-api.kiko.sh/',
+            type: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            contentType: "application/json",
+            data: JSON.stringify({
+                name: $('#input').val()
+            })
+        })
+        .done(function( msg ) {
+            $('#input').val('')
+            $('#result').html('Saved!')
+        });
+    })
+</script>

@@ -1,6 +1,6 @@
 # GFT - Dojo IaC
 
-Repositório utilizado para o Dojo de IaC realizado no dia 23/03/2012
+Repositório utilizado para o Dojo de IaC realizado no dia 31/03/2012
 
 Link apresentação: _Em breve_
 
@@ -40,3 +40,5 @@ O objetivo é demonstrar a criação de uma aplicação 3 camadas utilizando 100
 * [Python: Troposphere](https://github.com/cloudtools/troposphere)
 * [GFT: Live IaC](https://www.youtube.com/watch?v=IRmMEj0s84I)
 * [GFT: Webinar IaC](https://www.youtube.com/watch?v=8iSoP_92fS8)
+* [Dojo: Mais informações](https://codingdojo.org/)
+* [Dojo: Puzzles](https://dojopuzzles.com/)
